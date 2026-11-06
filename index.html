@@ -998,7 +998,8 @@ function cloudCard(){const web=isWeb(),cid=clientId();let body;
     <details class="more"><summary>Direkt in der Tabelle arbeiten</summary><div class="more-body"><p class="muted">Im Blatt „Zeiten“ kannst du Notiz, Status, Von, Bis, Pause und km ändern oder unten neue Zeilen anfügen. Für eine neue Zeile reichen Datum, Von, Bis und der Projektname, so wie er im Blatt „Projekte“ steht. Spalten ab „ID“ nicht ändern. Löschen bitte in der App. Als Excel-Datei: in Google Tabellen „Datei → Herunterladen → Microsoft Excel“.</p></div></details>
     <button class="btn small danger" data-act="cloud-disconnect" style="align-self:flex-start">Verbindung trennen</button>`;
   const dev=web&&!GOOGLE_CLIENT_ID&&!cloudOn()?`<details class="more" ${cid?'':'open'}><summary>Einrichtung (einmalig)</summary><div class="more-body"><div class="field"><label for="cid">Google OAuth-Client-ID</label><input id="cid" data-cloud="clientId" value="${esc(C.clientId)}" placeholder="1234-abc.apps.googleusercontent.com"><small>In der Google Cloud Console als „Autorisierter JavaScript-Ursprung“ eintragen: <b>${esc(location.origin)}</b></small></div></div></details>`:'';
-  return`<section class="card stack"><h2>${Is('cloud')} Google Drive</h2>${body}${dev}</section>`}
+  const legal=`<p class="muted" style="font-size:.86rem"><b>Datenschutz:</b> Stundenwerk hat keinen eigenen Server. Deine Daten liegen nur auf deinem Gerät und, wenn du es verbindest, in deinem eigenen Google-Konto. Der Anbieter von Stundenwerk kann sie nicht sehen. Für die Daten und das gewählte Konto bist du selbst verantwortlich. Für Kundendaten im Betrieb empfiehlt sich ein geschäftliches Google-Konto (Google Workspace) mit Vertrag zur Auftragsverarbeitung.</p>`;
+  return`<section class="card stack"><h2>${Is('cloud')} Google Drive</h2>${body}${legal}${dev}</section>`}
 
 /* ==== Aktionen ==== */
 const ACT={
